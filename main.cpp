@@ -12,7 +12,7 @@ int main()
 
 	SetTargetFPS(60);
 	Texture2D characterTexture = LoadTexture("Assets/Pink_Monster_Walk_6.png");
-	Animation characterAnimation(characterTexture, 32, 32, 8); // Adjust frameWidth, frameHeight, and numFrames
+	Animation characterAnimation(characterTexture, 8); // Adjust frameWidth, frameHeight, and numFrames
 	RPGGame.Update(characterAnimation, Character);
 	RPGGame.Shutdown();
 
