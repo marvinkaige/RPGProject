@@ -12,7 +12,11 @@ void Animation::Update(float deltaTime)
   if (frameTime >= 1.0f / 10.0f)
   { // 10 FPS animation
     frameTime = 0.0f;
-    currentSprite = (currentSprite + 1) % numSprites;
+    currentSprite++;
+    if (currentSprite >= numSprites)
+    {
+      currentSprite = 0;
+    }
   }
 }
 
