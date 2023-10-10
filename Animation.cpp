@@ -1,9 +1,9 @@
 #include "Animation.h"
 
-Animation::Animation(Texture2D texture, int numFrames)
+Animation::Animation(Texture2D texture, int numSprites)
 {
   this->texture = texture;
-  this->numFrames = numFrames;
+  this->numSprites = numSprites;
 }
 
 void Animation::Update(float deltaTime)
@@ -12,7 +12,7 @@ void Animation::Update(float deltaTime)
   if (frameTime >= 1.0f / 10.0f)
   { // 10 FPS animation
     frameTime = 0.0f;
-    currentSprite = (currentSprite + 1) % numFrames;
+    currentSprite = (currentSprite + 1) % numSprites;
   }
 }
 
