@@ -1,6 +1,14 @@
 #pragma once
-#include "AActor.h";
+#include "CharacterBase.h"
+#include "NPC.h"
+#include "AllyNPC.h"
 
-class Player : public AActor {
-	float health = 100.0;
+class Player : public CharacterBase {
+public:
+	Player(Texture2D texture, int numSprites);
+	void Move() override;
+	void CheckWall() override;
+	bool CheckForCollision(NPC* npc);
+	void CollisionWithAlly(AllyNPC* npc);
+	void CollisionWithEnemy();
 };

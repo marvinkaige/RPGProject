@@ -1,19 +1,15 @@
 #include "Game.h"
 #include "raylib.h"
-#include "Animation.h"
-#include "AActor.h"
+#include "Player.h"
+#include "EnemyNPC.h"
+#include "AllyNPC.h"
 
 int main()
 {
 	Game RPGGame;
-	AActor Character;
 
 	RPGGame.Initialize();
-
-	SetTargetFPS(60);
-	Texture2D characterTexture = LoadTexture("Assets/Pink_Monster_Walk_6.png");
-	Animation characterAnimation(characterTexture, 8); // Adjust frameWidth, frameHeight, and numFrames
-	RPGGame.Update(characterAnimation, Character);
+	RPGGame.Update();
 	RPGGame.Shutdown();
 
 	return 0;

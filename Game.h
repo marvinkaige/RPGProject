@@ -1,13 +1,15 @@
 #pragma once
 #include "raylib.h"
-#include "AActor.h"
-#include "Animation.h"
+#include "EnemyNPC.h"
+#include "AllyNPC.h"
+#include "Player.h"
 
 class Game
 {
 public:
+	Game();
 	void Initialize();
-	void Update(Animation characterAnimation, AActor character);
+	void Update();
 	void Shutdown();
 
 private:

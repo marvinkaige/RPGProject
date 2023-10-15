@@ -1,33 +1,60 @@
 #include "Game.h"
 
+Game::Game()
+{
+}
+
 void Game::Initialize()
 {
 	InitWindow(ScreenWidth, ScreenHeight, "RPG");
 };
 
-void Game::Update(Animation characterAnimation, AActor character)
+void Game::Update()
 {
+	SetTargetFPS(60);
+
+	double lastExecutionTime = GetTime();
+	double executionInterval = 0.2;
+
+	Texture2D playerTexture = LoadTexture("./Assets/Owlet_Monster_Walk_6.png");
+	Player player = Player(playerTexture, 6);
+
+	Texture2D enemyTexture = LoadTexture("./Assets/Pink_Monster_Walk_6.png");
+	EnemyNPC enemy = EnemyNPC(enemyTexture, 6);
+	enemy.setPosition({ 500, 300 });
+
+	Texture2D allyTexture = LoadTexture("./Assets/Dude_Monster_Walk_6.png");
+	AllyNPC ally = AllyNPC(allyTexture, 6);
+	ally.setPosition({ 100, 100 });
 
 	while (!WindowShouldClose())
 	{
-		float deltaTime = GetFrameTime();
-		characterAnimation.Update(deltaTime);
+		player.Move();
+		enemy.Move(&player);
+		ally.Move();
 
-		if (IsKeyDown(KEY_RIGHT))
-			character.location.x += character.speed * deltaTime;
-		if (IsKeyDown(KEY_LEFT))
-			character.location.x -= character.speed * deltaTime;
-		if (IsKeyDown(KEY_DOWN))
-			character.location.y += character.speed * deltaTime;
-		if (IsKeyDown(KEY_UP))
-			character.location.y -= character.speed * deltaTime;
+		double currentTime = GetTime();
+		double elapsedTime = currentTime - lastExecutionTime;
+
+		if (elapsedTime >= executionInterval) {
+			if (player.CheckForCollision(&ally)) {
+				player.CollisionWithAlly(&ally);
+			}
+
+			if (player.CheckForCollision(&enemy)) {
+				player.CollisionWithEnemy();
+			}
+			lastExecutionTime = currentTime;
+		}
 
 		BeginDrawing();
 		ClearBackground(WHITE);
-		characterAnimation.Draw({character.location.x, character.location.y});
+		ally.animation.Draw(ally.getPosition());
+		player.animation.Draw(player.getPosition());
+		enemy.animation.Draw(enemy.getPosition());
+
 		EndDrawing();
 	}
-	UnloadTexture(characterAnimation.getTexture());
 };
 
 void Game::Shutdown()

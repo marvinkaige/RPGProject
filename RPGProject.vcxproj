@@ -131,17 +131,33 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AActor.cpp" />
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="EnemyNPC.cpp" />
+    <ClCompile Include="AllyNPC.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="CharacterBase.cpp" />
+    <ClCompile Include="NPC.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AActor.h" />
-    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Animation.h" />
+    <ClInclude Include="EnemyNPC.h" />
+    <ClInclude Include="AllyNPC.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="CharacterBase.h" />
+    <ClInclude Include="NPC.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\Users\Marvin\Downloads\free-pixel-art-tiny-hero-sprites\2 Owlet_Monster\Owlet_Monster_Walk_6.png" />
+    <Image Include="Assets\Dude_Monster_Walk_6.png" />
+    <Image Include="Assets\Owlet_Monster_Walk_6.png" />
+    <Image Include="Assets\Pink_Monster_Walk_6.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,10 @@
 class AActor
 {
 public:
-	Vector2 location{400.0, 300.0};
-	float speed = 200.0f;
+	Vector2 getPosition();
+	void setPosition(Vector2 newPosition);
+	virtual void Move() = 0;
+
+private:
+	Vector2 position = { 400,300 };
 };

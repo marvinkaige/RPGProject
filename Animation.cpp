@@ -6,11 +6,12 @@ Animation::Animation(Texture2D texture, int numSprites)
   this->numSprites = numSprites;
 }
 
-void Animation::Update(float deltaTime)
+void Animation::Update()
 {
+  float deltaTime = GetFrameTime();
   frameTime += deltaTime;
   if (frameTime >= 1.0f / 10.0f)
-  { // 10 FPS animation
+  {
     frameTime = 0.0f;
     currentSprite++;
     if (currentSprite >= numSprites)
@@ -23,10 +24,25 @@ void Animation::Update(float deltaTime)
 void Animation::Draw(Vector2 position)
 {
   Rectangle sourceRect = {currentSprite * spriteWidth, 0, spriteWidth, spriteHeight};
-  DrawTextureRec(texture, sourceRect, position, WHITE);
+  DrawTexturePro(texture, sourceRect, Rectangle{ position.x, position.y, spriteWidth * scale, spriteHeight * scale }, Vector2{}, 0.0f, WHITE);
 }
 
-Texture2D Animation::getTexture()
-{
-  return texture;
+float Animation::getScale() {
+    return scale;
+}
+
+int Animation::getSpriteWidth() {
+    return spriteWidth;
+};
+
+int Animation::getSpriteHeight() {
+    return spriteHeight;
+};
+
+void Animation::increaseScale() {
+    scale *= 1.05;
+}
+
+void Animation::decreaseScale() {
+    scale *= 0.98;
 }

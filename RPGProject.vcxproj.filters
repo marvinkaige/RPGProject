@@ -24,6 +24,24 @@
     <ClCompile Include="AActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyNPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AllyNPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -32,14 +50,40 @@
     <ClInclude Include="AActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy.h">
+    <ClInclude Include="NPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyNPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AllyNPC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Pink_Monster_Walk_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Users\Marvin\Downloads\free-pixel-art-tiny-hero-sprites\2 Owlet_Monster\Owlet_Monster_Walk_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Dude_Monster_Walk_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Assets\Owlet_Monster_Walk_6.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
