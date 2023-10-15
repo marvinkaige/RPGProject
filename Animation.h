@@ -12,6 +12,7 @@ public:
   float getScale();
   void increaseScale();
   void decreaseScale();
+  Texture2D getTexture();
 
 private:
   Texture2D texture;

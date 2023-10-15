@@ -9,8 +9,8 @@ class Game
 public:
 	Game();
 	void Initialize();
-	void Update();
-	void Shutdown();
+	void Update(Player player, EnemyNPC enemy, AllyNPC ally);
+	void Shutdown(Player player, EnemyNPC enemy, AllyNPC ally);
 
 private:
 	int ScreenWidth = 800;

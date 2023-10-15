@@ -46,3 +46,7 @@ void Animation::increaseScale() {
 void Animation::decreaseScale() {
     scale *= 0.98;
 }
+
+Texture2D Animation::getTexture() {
+    return texture;
+};
