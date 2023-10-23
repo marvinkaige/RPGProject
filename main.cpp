@@ -10,6 +10,7 @@ int main()
 
 	RPGGame.Initialize();
 
+	// Creating all the characters for the game
 	Texture2D playerTexture = LoadTexture("./Assets/Owlet_Monster_Walk_6.png");
 	Player player = Player(playerTexture, 6);
 

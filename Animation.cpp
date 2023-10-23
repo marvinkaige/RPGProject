@@ -6,6 +6,8 @@ Animation::Animation(Texture2D texture, int numSprites)
   this->numSprites = numSprites;
 }
 
+
+// Update the current sprite
 void Animation::Update()
 {
   float deltaTime = GetFrameTime();
@@ -21,12 +23,16 @@ void Animation::Update()
   }
 }
 
+
+// Draw the character with current sprite
 void Animation::Draw(Vector2 position)
 {
   Rectangle sourceRect = {currentSprite * spriteWidth, 0, spriteWidth, spriteHeight};
   DrawTexturePro(texture, sourceRect, Rectangle{ position.x, position.y, spriteWidth * scale, spriteHeight * scale }, Vector2{}, 0.0f, WHITE);
 }
 
+
+// Different getters and setters for animation variables
 float Animation::getScale() {
     return scale;
 }

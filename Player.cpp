@@ -2,6 +2,8 @@
 
 Player::Player(Texture2D texture, int numSprites) : CharacterBase(texture, numSprites) {}
 
+
+// Function that updates position based on movement with arrow keys input
 void Player::Move()
 {
     CheckWall();
@@ -18,6 +20,7 @@ void Player::Move()
     animation.Update();
 }
 
+// Check if Player is moving into a wall
 void Player::CheckWall() {
     if (getPosition().x + animation.getSpriteWidth() >= GetScreenWidth()) {
         setPosition({ float(GetScreenWidth()) - animation.getSpriteWidth(), getPosition().y });
@@ -33,6 +36,8 @@ void Player::CheckWall() {
     }
 }
 
+
+// Check if Player is colliding with NPC
 bool Player::CheckForCollision(NPC* npc) {
     if ((this->getPosition().x <= (npc->getPosition().x + npc->animation.getSpriteWidth()*(npc->animation.getScale())) &&
         (this->getPosition().x + this->animation.getSpriteWidth() * npc->animation.getScale()) >= npc->getPosition().x) &&

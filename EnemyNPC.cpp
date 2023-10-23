@@ -2,6 +2,8 @@
 
 EnemyNPC::EnemyNPC(Texture2D texture, int numSprites) : NPC(texture, numSprites) {}
 
+
+// EnemyNPC move function to move towards the Player
 void EnemyNPC::Move(Player* player) {
 
     CheckWall();

@@ -4,12 +4,16 @@ Game::Game()
 {
 }
 
+
+// Function to initialize the game window and set FPS
 void Game::Initialize()
 {
 	InitWindow(ScreenWidth, ScreenHeight, "RPG");
 	SetTargetFPS(60);
 };
 
+
+// Function to Update all the Character movements, check for Collisions.
 void Game::Update(Player player, EnemyNPC enemy, AllyNPC ally)
 {
 	double lastExecutionTime = GetTime();
@@ -24,6 +28,7 @@ void Game::Update(Player player, EnemyNPC enemy, AllyNPC ally)
 		double currentTime = GetTime();
 		double elapsedTime = currentTime - lastExecutionTime;
 
+		// Only allow collisions every 0.2 sec.
 		if (elapsedTime >= executionInterval) {
 			if (player.CheckForCollision(&ally)) {
 				player.CollisionWithAlly(&ally);
@@ -45,6 +50,7 @@ void Game::Update(Player player, EnemyNPC enemy, AllyNPC ally)
 	}
 };
 
+// Shutdown function for the game
 void Game::Shutdown(Player player, EnemyNPC enemy, AllyNPC ally)
 {
 

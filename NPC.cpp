@@ -3,6 +3,8 @@
 
 NPC::NPC(Texture2D texture, int numSprites) : CharacterBase(texture, numSprites) {}
 
+
+// NPC movement which doesnt have to follow the Player
 void NPC::Move() {
 
     CheckWall();
@@ -13,6 +15,8 @@ void NPC::Move() {
     animation.Update();
 }
 
+
+// Check to see if NPC runs into a wall
 void NPC::CheckWall() {
     if ((getPosition().x + animation.getSpriteWidth() >= GetScreenWidth()) || (getPosition().x <= 0)) {
         speed.x *= -1;
