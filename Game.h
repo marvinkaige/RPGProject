@@ -13,6 +13,5 @@ public:
 	void Shutdown(Player player, EnemyNPC enemy, AllyNPC ally);
 
 private:
-	int ScreenWidth = 800;
-	int ScreenHeight = 600;
+	const Vector2 screenSize = { 800,600 };
 };

@@ -8,7 +8,7 @@ Game::Game()
 // Function to initialize the game window and set FPS
 void Game::Initialize()
 {
-	InitWindow(ScreenWidth, ScreenHeight, "RPG");
+	InitWindow(screenSize.x, screenSize.y, "RPG");
 	SetTargetFPS(60);
 };
 
@@ -28,7 +28,7 @@ void Game::Update(Player player, EnemyNPC enemy, AllyNPC ally)
 		double currentTime = GetTime();
 		double elapsedTime = currentTime - lastExecutionTime;
 
-		// Only allow collisions every 0.2 sec.
+		// Only check collisions every 0.2 sec.
 		if (elapsedTime >= executionInterval) {
 			if (player.CheckForCollision(&ally)) {
 				player.CollisionWithAlly(&ally);
@@ -53,7 +53,6 @@ void Game::Update(Player player, EnemyNPC enemy, AllyNPC ally)
 // Shutdown function for the game
 void Game::Shutdown(Player player, EnemyNPC enemy, AllyNPC ally)
 {
-
 		UnloadTexture(player.animation.getTexture());
 		UnloadTexture(enemy.animation.getTexture());
 		UnloadTexture(ally.animation.getTexture());

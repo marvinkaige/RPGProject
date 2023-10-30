@@ -48,13 +48,13 @@ bool Player::CheckForCollision(NPC* npc) {
     }
     return false;
 }
-
+// Action in case of collision with Ally NPC
 void Player::CollisionWithAlly(AllyNPC* ally) {
     ally->CollisionAction();
     animation.increaseScale();
 };
 
-
+// Action in case of collision with E?emy NPC
 void Player::CollisionWithEnemy() {
     animation.decreaseScale();
 };
